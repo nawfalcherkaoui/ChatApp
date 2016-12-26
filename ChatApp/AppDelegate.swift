@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        FIRApp.configure()
+        
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        window?.makeKeyAndVisible()
+        
+        //window?.rootViewController = UINavigationController(rootViewController: MessagesController())
+        
+        window?.rootViewController = customTabBarController()
+//        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.init(red: 25/255, green: 165/255, blue: 153/255, alpha: 1)], forState:.Normal)
+        
+        // this to make the color of the navigation bar to blue. the whole background to blue
+        //UINavigationBar.appearance().barTintColor = UIColor(red: 51/255, green: 90/255, blue: 149/255, alpha: 1)
+        // this changes the color of the text in the navigation bar
+        //UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
+        // we also want to change the color of the (time, battery life, T-Mobile) to light white which is called the status bar
+        //application.statusBarStyle = .LightContent
+    
+        
         return true
     }
 
